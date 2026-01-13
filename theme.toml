@@ -1,8 +1,8 @@
-name = 'hugo-theme-reimu'
+name = 'SilenceSusuka\'sblog'
 license = 'MIT'
-licenselink = 'https://github.com/D-Sketon/hugo-theme-reimu/blob/main/LICENSE'
+licenselink = 'https://github.com/SilenceSusuka/MyBlog/blob/main/LICENSE'
 description = 'A Hakurei Reimu style Hugo theme'
-homepage = 'https://github.com/D-Sketon/hugo-theme-reimu'
+homepage = 'https://silencesusuka.github.io/MyBlog'
 demosite = 'https://d-sketon.github.io/hugo-theme-reimu'
 
 tags = ['Blog', 'Chinese', 'Responsive', 'Dark', 'Light']
@@ -10,4 +10,4 @@ features = ['Blog', 'Chinese', 'Responsive', 'Dark', 'Light']
 
 [author]
 name = 'D-Sketon'
-homepage = 'https://d-sketon.github.io/'
+homepage = 'https://silencesusuka.github.io/'
