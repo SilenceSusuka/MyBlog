@@ -1,7 +1,14 @@
 ---
 title: '依靠github pages以及hugo搭建自己的博客网站'
-date: 2026-01-13T00:00:00+08:00
-lastmod: 2026-01-13T00:00:00+08:00
+date: 2026-01-13T14:49:00+08:00
+lastmod: 2026-01-13T17:09:00+08:00
+categories:
+  - 服务器笔记
+tags:
+  - Hugo
+  - GitHub Pages
+  - GitHub Actions
+  - Blog
 ---
 ## 1、连接本地与github
 
