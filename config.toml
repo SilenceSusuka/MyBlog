@@ -1,3 +1,8 @@
+# 网站基础 URL
+# 如果部署在根域名，设置为: baseURL = "https://example.com"
+# 如果部署在子目录（如 GitHub Pages），设置为: baseURL = "https://username.github.io/repository/"
+baseURL = "https://silencesusuka.github.io/MyBlog"
+
 [module]
   [module.hugoVersion]
     extended = true
