@@ -1,4 +1,4 @@
-baseURL = "http://blog.silencesusuka.com/"
+baseURL = "https://blog.silencesusuka.com/"
 
 [module]
   [module.hugoVersion]
