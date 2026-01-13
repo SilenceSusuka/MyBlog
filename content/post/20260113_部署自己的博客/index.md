@@ -10,7 +10,7 @@ tags:
   - GitHub Actions
   - Blog
 ---
-## 1、连接本地与github
+## 1、连接本地与github(可选)
 
 ### 1.1、配置ssh_key
 
@@ -33,6 +33,13 @@ ssh-rsa AAAAB3Nz......Js= register@mail.com
 ```
 ssh -T git@github.com
 Hi SilenceSusuka! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+5）配置git config
+
+```
+git config --global user.name "你的用户名"
+git config --global user.email "你的邮箱地址"
 ```
 
 ### 1.2、配置本地git仓库
@@ -132,3 +139,29 @@ jobs:
 等待action启动成功后即可访问博客
 
 ![1768293929343](images/1768293929343.png)
+
+## 4、配置自定义域名(可选)
+
+### 4.1、在域名控制台设置解析
+
+1）设置CNAME解析，解析地址为原先github博客的域名
+
+![1768297859531](image/index/1768297859531.png)
+
+2）验证解析是否生效，可用阿里云拨号平台
+
+[https://boce.aliyun.com/detect/dns](https://boce.aliyun.com/detect/dns)
+
+### 4.2、 设置自定义域名
+
+1）在settings的page页面输入已配置好的域名进行验证
+
+![1768298016354](image/index/1768298016354.png)
+
+2）验证好后勾选Enforce HTTPS
+
+3）设置config.toml中的baseURL为自定义的域名
+
+```
+baseURL = "https://blog.silencesusuka.com/"
+```
