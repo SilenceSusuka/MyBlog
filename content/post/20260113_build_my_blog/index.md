@@ -68,11 +68,11 @@ config.toml为hugo的旧版配置文件(新版为hugo.toml)其中必须配置正
 baseURL = "https://silencesusuka.github.io/MyBlog/"
 ```
 
-![1768293887728](image/20260113_build_my_blog/1768293887728.png)
+![1768293887728](images/1768293887728.png)
 
 而config_default\params.yml主要用于配置网页内的内容，一般只需要修改主页头像，昵称，简介这些内容即可
 
-![1768293860254](image/20260113_build_my_blog/1768293860254.png)
+![1768293860254](images/1768293860254.png)
 
 ## 3、使用gihub pages以及action部署博客网站
 
@@ -120,8 +120,8 @@ jobs:
 
 接着在仓库的settings下的page设置中将source设置为github actions
 
-![1768293768413](image/20260113_build_my_blog/1768293768413.png)
+![1768293768413](images/1768293768413.png)
 
 等待action启动成功后即可访问博客
 
-![1768293929343](image/20260113_build_my_blog/1768293929343.png)
+![1768293929343](images/1768293929343.png)
