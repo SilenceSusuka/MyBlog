@@ -1,4 +1,8 @@
-# 依靠github pages以及hugo搭建自己的博客网站
+---
+title: '依靠github pages以及hugo搭建自己的博客网站'
+date: 2026-01-13T00:00:00+08:00
+lastmod: 2026-01-13T00:00:00+08:00
+---
 
 ## 1、连接本地与github
 
