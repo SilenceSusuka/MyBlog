@@ -597,7 +597,7 @@ injector:
 
 # Experimental, may have a lot of bugs, open with caution!
 pjax:
-  enable: false
+  enable: true  # 启用 PJAX，避免切换页面时播放器重新加载
 
 # Experimental
 # https://github.com/GoogleChromeLabs/quicklink
