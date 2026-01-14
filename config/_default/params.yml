@@ -422,10 +422,10 @@ utterances:
 ########################################
 
 algolia_search:
-  enable: false
-  appID:
-  apiKey:
-  indexName:
+  enable: true
+  appID: 5GL2SU08DT
+  apiKey: ff85a236595d53a3bdc4533e7e7419ac
+  indexName: blog
   hits:
     per_page: 10
 
