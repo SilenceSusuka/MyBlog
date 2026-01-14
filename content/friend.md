@@ -2,14 +2,13 @@
 title: 友情链接
 description: 友情链接
 
-date: 2022-06-09T20:12:52+08:00
-lastmod: 2022-06-09T20:12:52+08:00
+date: 2026-01-14T14:50:00+08:00
+lastmod: 2022-01-14T14:50:00+08:00
 ---
-
 ## 本站信息
 
-- 站名： 拔剑Sketon
-- 站长： 拔剑Sketon
+- 站名： SilenceSusuka's blog
+- 站长： SilenceSusuka
 
 ## 申请方法
 
