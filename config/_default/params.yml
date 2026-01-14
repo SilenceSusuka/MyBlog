@@ -634,7 +634,7 @@ pace:
 # Please turn on pjax to use this feature
 player:
   disable_on_mobile: false
-  position: after_widget # before_sidebar | after_sidebar | after_widget
+  position: before_sidebar # before_sidebar | after_sidebar | after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:
     # https://github.com/DIYgod/APlayer
@@ -642,10 +642,9 @@ player:
     options:
       audio: []  # 使用 Meting 时会被覆盖，无需填写
       fixed: false  # 固定播放器位置（底部）
-      mini:  true  # 是否最小化
       autoplay: true  # 是否自动播放
-      loop: all  # 循环模式：all（全部）| one（单曲）| none（不循环）
-      order: random  # 播放顺序：list（列表）| random（随机）| single（单曲）
+      loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
+      order: single  # 播放顺序：list（列表）| random（随机）| single（单曲）
       preload: auto  # 预加载：auto | metadata | none
       volume: 0.7  # 音量（0-1）
       mutex: true  # 是否互斥（同时只能播放一个）
@@ -657,9 +656,9 @@ player:
     enable: true  # 启用 Meting
     meting_api: # 自定义 API（可选，留空使用默认）
     options:
-      id: 17668774396  # 播放列表/歌曲/专辑 ID
+      id: 27532964  # 播放列表/歌曲/专辑 ID
       server: netease  # 音乐平台：netease（网易云）| tencent（QQ音乐）| kugou（酷狗）| xiami（虾米）| baidu（百度）| kuwo（酷我）| bilibili（B站）
-      type: playlist  # 类型：song（单曲）| playlist（播放列表）| album（专辑）| search（搜索）| artist（艺术家）
+      type: song  # 类型：song（单曲）| playlist（播放列表）| album（专辑）| search（搜索）| artist（艺术家）
       auto:   # 自动播放列表（可选）
 
 ########################################
