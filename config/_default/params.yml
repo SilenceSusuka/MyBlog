@@ -96,7 +96,7 @@ footer:
 # Sidebar
 # sidebar: right # deprecated, use sidebar.position instead
 sidebar:
-  position: right
+  position: left
   menu: true  # whether to show the sidebar menu button, ignored on mobile devices
   article:
     show_common: true # whether to show common sidebar, ignored on mobile devices
@@ -591,37 +591,7 @@ injector:
   head_begin: # Inject code snippet right after <head>
   head_end: # Inject code snippet right before </head>
   body_begin: # Inject code snippet right after <body>
-  body_end: |-
-    <script>
-    // 处理音乐播放器自动播放：在用户首次交互后触发播放
-    // 注意：由于浏览器自动播放策略，需要用户交互后才能自动播放
-    (function() {
-      let autoplayTriggered = false;
-      const triggerAutoplay = () => {
-        if (!autoplayTriggered) {
-          autoplayTriggered = true;
-          // 等待 Meting 和 APlayer 加载完成
-          const checkAndPlay = () => {
-            if (window.aplayers && window.aplayers.length > 0) {
-              const aplayer = window.aplayers[0];
-              if (aplayer && aplayer.audio && aplayer.audio.paused) {
-                aplayer.play().catch(err => {
-                  console.log('Autoplay: User interaction required');
-                });
-              }
-            } else {
-              setTimeout(checkAndPlay, 200);
-            }
-          };
-          setTimeout(checkAndPlay, 1000);
-        }
-      };
-      // 监听用户交互事件（点击、触摸、滚动、按键）
-      ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
-        document.addEventListener(event, triggerAutoplay, { once: true, passive: true });
-      });
-    })();
-    </script>
+  body_end: # Inject code snippet right before </body>
   sidebar_begin: # Inject code snippet right after <aside>
   sidebar_end: # Inject code snippet right before </aside>
 
@@ -664,14 +634,14 @@ pace:
 # Please turn on pjax to use this feature
 player:
   disable_on_mobile: false
-  position: after_sidebar # before_sidebar | after_sidebar | after_widget
+  position: before_sidebar # before_sidebar | after_sidebar | after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:
     # https://github.com/DIYgod/APlayer
     enable: true  # 启用 APlayer
     options:
       audio: []  # 使用 Meting 时会被覆盖，无需填写
-      fixed: true  # 固定播放器位置（底部）
+      fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: all  # 循环模式：all（全部）| one（单曲）| none（不循环）
       order: random  # 播放顺序：list（列表）| random（随机）| single（单曲）
