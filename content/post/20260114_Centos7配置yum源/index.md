@@ -7,7 +7,8 @@ lastmod: 2026-01-14T10:08:00+08:00
 categories:
 - 服务器笔记
 - 命令集
-  tags:
+
+tags:
 - Centos7
 - yum
 ---
