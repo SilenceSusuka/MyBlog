@@ -38,6 +38,8 @@ tags:
 
 ## 2、hugo模板的博客配置
 
+博客使用的模板：[博丽灵梦-hugo theme](https://github.com/D-Sketon/hugo-theme-reimu)
+
 1）在config.toml或者hugo.toml中加入以下配置，用于生成上传文章的algolia.json
 
 ```
@@ -138,3 +140,5 @@ jobs:
 ![1768369980883](image/index/1768369980883.png)
 
 最后把刚刚的更新推送上去，自动执行actions后就可以成功使用搜索了
+
+![1768370559321](image/index/1768370559321.png)
