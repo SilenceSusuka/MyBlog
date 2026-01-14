@@ -642,6 +642,7 @@ player:
     options:
       audio: []  # 使用 Meting 时会被覆盖，无需填写
       fixed: false  # 固定播放器位置（底部）
+      mini:  true  # 是否最小化
       autoplay: true  # 是否自动播放
       loop: all  # 循环模式：all（全部）| one（单曲）| none（不循环）
       order: random  # 播放顺序：list（列表）| random（随机）| single（单曲）
