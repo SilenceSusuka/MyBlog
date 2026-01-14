@@ -28,15 +28,8 @@ jobs:
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           ALGOLIA_INDEX_FILE: public/algolia.json
         run: |
-          if [ -f "public/algolia.json" ] && [ -n "$ALGOLIA_ADMIN_KEY" ]; then
-            # 设置默认值（如果 secrets 未设置）
-            export ALGOLIA_APP_ID=${ALGOLIA_APP_ID:-5GL2SU08DT}
-            export ALGOLIA_INDEX_NAME=${ALGOLIA_INDEX_NAME:-blog}
             npm install -g atomic-algolia
             atomic-algolia
-          else
-            echo "Skipping Algolia upload: algolia.json not found or ALGOLIA_ADMIN_KEY not set"
-          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public

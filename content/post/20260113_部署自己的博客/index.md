@@ -6,8 +6,9 @@ categories:
   - 服务器笔记
 tags:
   - Hugo
-  - GitHub Pages
-  - GitHub Actions
+  - Github
+  - Github Pages
+  - Github Actions
   - Blog
 ---
 ## 1、连接本地与github(可选)
