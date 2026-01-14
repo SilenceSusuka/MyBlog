@@ -634,7 +634,7 @@ pace:
 # Please turn on pjax to use this feature
 player:
   disable_on_mobile: false
-  position: after_sidebar # before_sidebar | after_sidebar | after_widget
+  position: after_widget # before_sidebar | after_sidebar | after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:
     # https://github.com/DIYgod/APlayer
