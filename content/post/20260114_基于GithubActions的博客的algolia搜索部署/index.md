@@ -1,5 +1,5 @@
 ---
-title: '给GithubActions部署的博客添加algolia功能'
+title: '给GithubActions部署的博客添加algolia搜索功能'
 
 date: 2026-01-14T11:07:00+08:00
 lastmod: 2026-01-14T11:07:00+08:00
