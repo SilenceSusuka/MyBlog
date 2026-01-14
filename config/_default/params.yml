@@ -591,7 +591,37 @@ injector:
   head_begin: # Inject code snippet right after <head>
   head_end: # Inject code snippet right before </head>
   body_begin: # Inject code snippet right after <body>
-  body_end: # Inject code snippet right before </body>
+  body_end: |-
+    <script>
+    // 处理音乐播放器自动播放：在用户首次交互后触发播放
+    // 注意：由于浏览器自动播放策略，需要用户交互后才能自动播放
+    (function() {
+      let autoplayTriggered = false;
+      const triggerAutoplay = () => {
+        if (!autoplayTriggered) {
+          autoplayTriggered = true;
+          // 等待 Meting 和 APlayer 加载完成
+          const checkAndPlay = () => {
+            if (window.aplayers && window.aplayers.length > 0) {
+              const aplayer = window.aplayers[0];
+              if (aplayer && aplayer.audio && aplayer.audio.paused) {
+                aplayer.play().catch(err => {
+                  console.log('Autoplay: User interaction required');
+                });
+              }
+            } else {
+              setTimeout(checkAndPlay, 200);
+            }
+          };
+          setTimeout(checkAndPlay, 1000);
+        }
+      };
+      // 监听用户交互事件（点击、触摸、滚动、按键）
+      ['click', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+        document.addEventListener(event, triggerAutoplay, { once: true, passive: true });
+      });
+    })();
+    </script>
   sidebar_begin: # Inject code snippet right after <aside>
   sidebar_end: # Inject code snippet right before </aside>
 
