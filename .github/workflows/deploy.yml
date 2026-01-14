@@ -23,11 +23,15 @@ jobs:
       # 上传搜索数据到 Algolia
       - name: Upload to Algolia
         env:
-          ALGOLIA_APP_ID: ${{ '5GL2SU08DT' }}
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          ALGOLIA_INDEX_NAME: ${{ 'blog' }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+          ALGOLIA_INDEX_FILE: public/algolia.json
         run: |
           if [ -f "public/algolia.json" ] && [ -n "$ALGOLIA_ADMIN_KEY" ]; then
+            # 设置默认值（如果 secrets 未设置）
+            export ALGOLIA_APP_ID=${ALGOLIA_APP_ID:-5GL2SU08DT}
+            export ALGOLIA_INDEX_NAME=${ALGOLIA_INDEX_NAME:-blog}
             npm install -g atomic-algolia
             atomic-algolia
           else
