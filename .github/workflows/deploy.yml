@@ -20,6 +20,19 @@ jobs:
           hugo-version: latest
           extended: true
       - run: hugo
+      # 上传搜索数据到 Algolia
+      - name: Upload to Algolia
+        env:
+          ALGOLIA_APP_ID: ${{ '5GL2SU08DT' }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ 'blog' }}
+        run: |
+          if [ -f "public/algolia.json" ] && [ -n "$ALGOLIA_ADMIN_KEY" ]; then
+            npm install -g atomic-algolia
+            atomic-algolia
+          else
+            echo "Skipping Algolia upload: algolia.json not found or ALGOLIA_ADMIN_KEY not set"
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public

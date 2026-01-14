@@ -1,0 +1,4 @@
+{
+  "index_name": "blog",
+  "index_file": "public/algolia.json"
+}
