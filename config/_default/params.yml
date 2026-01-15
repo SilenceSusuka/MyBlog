@@ -683,16 +683,16 @@ material_theme:
 
 internal_theme:
   light:
-    --red-0: '#ff0000'
-    --red-1: '#ff5252'
-    --red-2: '#ff7c7c'
-    --red-3: '#ffafaf'
-    --red-4: '#ffd0d0'
-    --red-5: '#ffecec'
-    --red-5-5: '#fff3f3'
-    --red-6: '#fff7f7'
-    --color-red-6-shadow: 'rgba(255, 78, 78, 0.6)'
-    --color-red-3-shadow: 'rgba(255, 78, 78, 0.3)'
+    --red-0: '#9B7ED8'  # 淡紫色主色调
+    --red-1: '#A88DE0'
+    --red-2: '#B59CE8'
+    --red-3: '#C2ABF0'
+    --red-4: '#CFBAF8'
+    --red-5: '#E6DDFF'
+    --red-5-5: '#F0E9FF'
+    --red-6: '#F7F3FF'
+    --color-red-6-shadow: 'rgba(155, 126, 216, 0.6)'  # 淡紫色阴影
+    --color-red-3-shadow: 'rgba(155, 126, 216, 0.3)'
 
     --highlight-nav: "#f5f5f5"
     --highlight-scrollbar: "#d6d6d6"
@@ -712,10 +712,10 @@ internal_theme:
     --highlight-addition: "#22863a"
     --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: 'rgba(255, 208, 208, 0.5)'
-    --red-5: 'rgba(255,228,228,0.15)'
-    --red-5-5: 'rgba(255,236,236,0.05)'
-    --red-6: 'rgba(255, 243, 243, 0.2)'
+    --red-4: 'rgba(207, 186, 248, 0.5)'  # 暗色模式下的淡紫色
+    --red-5: 'rgba(230, 221, 255, 0.15)'
+    --red-5-5: 'rgba(240, 233, 255, 0.05)'
+    --red-6: 'rgba(247, 243, 255, 0.2)'
 
     --highlight-nav: "#222830"
     --highlight-scrollbar: "#454d59"
