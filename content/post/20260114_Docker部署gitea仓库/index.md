@@ -1,6 +1,6 @@
 ---
 title: 'Docker部署gitea仓库'
-
+cover: https://blog.silencesusuka.com/images/cover/cover5.jpg
 date: 2026-01-14T16:16:00+08:00
 lastmod: 2026-01-14T16:16:00+08:00
 
@@ -67,7 +67,7 @@ docker compose up -d
 
 错误情况
 
-执行`curl http://localhost:3000`
+执行 `curl http://localhost:3000`
 
 响应
 
@@ -85,7 +85,7 @@ mkdir: can't create directory '/var/lib/gitea/git': Permission denied /var/lib/g
 
 因此解决方案为
 
-1）将`docker-compose.yml`文件中的`image: gitea-pandoc:1.24.3-rootless`末尾的rootless去掉再执行up
+1）将 `docker-compose.yml`文件中的 `image: gitea-pandoc:1.24.3-rootless`末尾的rootless去掉再执行up
 
 2）修改data与config文件夹的属主
 

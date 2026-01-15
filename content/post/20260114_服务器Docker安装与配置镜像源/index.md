@@ -1,6 +1,6 @@
 ---
 title: '服务器Docker安装与配置镜像源'
-
+cover: https://blog.silencesusuka.com/images/cover/cover2.jpg
 date: 2026-01-14T16:00:00+08:00
 lastmod: 2026-01-14T16:00:00+08:00
 

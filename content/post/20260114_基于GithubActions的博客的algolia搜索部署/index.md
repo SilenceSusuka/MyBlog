@@ -1,6 +1,6 @@
 ---
 title: '给GithubActions部署的博客添加algolia搜索功能'
-
+cover: https://blog.silencesusuka.com/images/cover/cover3.jpg
 date: 2026-01-14T11:07:00+08:00
 lastmod: 2026-01-14T11:07:00+08:00
 

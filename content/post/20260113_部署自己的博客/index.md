@@ -1,5 +1,6 @@
 ---
 title: '依靠github pages以及hugo搭建自己的博客网站'
+cover: https://blog.silencesusuka.com/images/cover/cover1.jpg
 date: 2026-01-13T14:49:00+08:00
 lastmod: 2026-01-13T17:09:00+08:00
 categories:

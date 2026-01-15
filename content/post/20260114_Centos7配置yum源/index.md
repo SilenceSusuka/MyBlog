@@ -1,6 +1,6 @@
 ---
 title: 'Centos7配置yum源'
-
+cover: https://blog.silencesusuka.com/images/cover/cover4.jpg
 date: 2026-01-14T10:08:00+08:00
 lastmod: 2026-01-14T10:08:00+08:00
 
