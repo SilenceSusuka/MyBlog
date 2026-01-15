@@ -31,7 +31,7 @@ email: night_stick@outlook.com
 description: "越努力越幸运"
 subtitle: "越努力越幸运"
 
-banner: "images/banner_1.png"
+banner: "images/banner_1.jpg"
 # You can also write it in the form of the following url
 # banner: "https://example.com"
 
@@ -589,25 +589,7 @@ home_categories:
 # Make sure your code snippet is safeHTML
 injector:
   head_begin: # Inject code snippet right after <head>
-  head_end: |-
-    <!-- 预设动态主题色，避免首次加载时的闪烁 -->
-    {{- if .Site.Params.material_theme.enable -}}
-    <style>
-      :root {
-        /* 预设淡蓝色主题色，与 banner 图片的主色调匹配 */
-        --red-0: #4A90E2;
-        --red-1: #5BA0F2;
-        --red-2: #6BB0FF;
-        --red-3: #8BC5FF;
-        --red-4: #ABD5FF;
-        --red-5: #CBE5FF;
-        --red-5-5: #E0EDFF;
-        --red-6: #F0F6FF;
-        --color-red-6-shadow: rgba(75, 144, 226, 0.6);
-        --color-red-3-shadow: rgba(75, 144, 226, 0.3);
-      }
-    </style>
-    {{- end -}}
+  head_end: # Inject code snippet right after </head>
   body_begin: # Inject code snippet right after <body>
   body_end: # Inject code snippet right before </body>
   sidebar_begin: # Inject code snippet right after <aside>
