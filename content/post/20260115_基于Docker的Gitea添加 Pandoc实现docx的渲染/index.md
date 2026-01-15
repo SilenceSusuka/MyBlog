@@ -1,6 +1,6 @@
 ---
 title: '基于Docker的Gitea添加 Pandoc实现docx的渲染'
-cover: - https://blog.silencesusuka.com/images/cover/cover7.jpg
+cover: https://blog.silencesusuka.com/images/cover/cover7.jpg
 date: 2026-01-15T16:19:00+08:00
 lastmod: 2026-01-15T16:19:00+08:00
 
