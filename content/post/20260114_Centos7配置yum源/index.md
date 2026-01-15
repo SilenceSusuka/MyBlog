@@ -5,9 +5,7 @@ date: 2026-01-14T10:08:00+08:00
 lastmod: 2026-01-14T10:08:00+08:00
 
 categories:
-- 服务器笔记
 - 命令集
-
 tags:
 - Centos7
 - yum
@@ -17,6 +15,7 @@ tags:
 ```
 cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 ```
+
 
 **2）下载阿里云镜像**
 
@@ -29,6 +28,7 @@ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-
 ```
 curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
+
 
 **3）清除并生成新的缓存**
 

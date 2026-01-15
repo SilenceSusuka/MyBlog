@@ -2,11 +2,10 @@
 title: 'Docker部署内网穿透ssh实现远程连接主机'
 cover: https://blog.silencesusuka.com/images/cover/cover6.jpg
 date: 2026-01-15T15:20:00+08:00
-lastmod: 2026-01-15T15:20:00+08:00
+lastmod: 2026-01-15T16:15:00+08:00
 
 categories:
   - 服务器笔记
-  - 命令集
 tags:
   - Docker
   - Frp
@@ -104,7 +103,6 @@ ssh -L 7500:127.0.0.1:7500 用户名@域名或IP
 
 ![1768462477271](image/index/1768462477271.png)
 
-
 ## 客户端frpc部署
 
 ### 1、下载与frps相同版本号的frpc
@@ -156,8 +154,7 @@ ssh -p 60022 frpc用户@frps域名
 
 F：docker部署网速较慢
 
-Q：注意docker设置host模式，即`network_mode: host`
-
+Q：注意docker设置host模式，即 `network_mode: host`
 
 F：docker网络正常，但无法拉取镜像
 

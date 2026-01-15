@@ -5,7 +5,6 @@ date: 2026-01-14T16:16:00+08:00
 lastmod: 2026-01-14T16:16:00+08:00
 
 categories:
-  - 服务器笔记
   - 命令集
 tags:
   - Docker
@@ -14,7 +13,7 @@ tags:
 ---
 ## 1、gitea部署
 
-1）创建项目文件夹及其子文件夹
+**1）创建项目文件夹及其子文件夹**
 
 ```
 mkdir -p ~/gitea
@@ -22,7 +21,9 @@ cd ~/gitea
 mkdir -p ~/gitea/{config,data}
 ```
 
-2）在工程目录(~/gitea)下创建docker-compose.yml
+
+
+**2）在工程目录(~/gitea)下创建`docker-compose.yml`**
 
 ```
 vi docker-compose.yml
@@ -33,7 +34,7 @@ version: "3.9"
 services:
   server:
     build: .
-    image: gitea-pandoc:1.24.3-rootless
+    image: gitea-pandoc:1.24-nightly-rootless
     container_name: gitea
     restart: always
     environment:
@@ -46,10 +47,12 @@ services:
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "3000:3000"
-      - "2222:2222"
+      - "2222:2222"   # SSH
 ```
 
-3）在项目文件夹下启动gitea
+
+
+**3）在项目文件夹下启动gitea**
 
 旧版本：
 
@@ -62,6 +65,8 @@ docker-compose up -d
 ```
 docker compose up -d
 ```
+
+
 
 ## 2、遇到的问题
 
