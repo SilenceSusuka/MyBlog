@@ -640,18 +640,7 @@ player:
     # https://github.com/DIYgod/APlayer
     enable: true  # 启用 APlayer
     options:
-      # 音频列表配置，每个对象包含以下字段：
-      # name: 歌曲名称（必填）
-      # artist: 艺术家/歌手（必填）
-      # url: 音频文件URL（必填，支持 mp3、wav、ogg 等格式）
-      # cover: 封面图片URL（可选，建议填写）
-      # lrc: 歌词文件URL（可选，如果启用歌词功能）
-      audio:
-        - name: "夜光虫"  # 歌曲名称
-          artist: "N-tone"  # 艺术家名称
-          url: "https://music.163.com/song/media/outer/url?id=792228.mp3"  # 音频文件URL
-          cover: "https://p2.music.126.net/lM-Cp3CAgY19BXU1IdbgyA==/109951164738797740.jpg"  # 封面图片URL
-          lrc: "[00:00.00]这是一首安静的纯音乐"
+      audio: []
       fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
@@ -664,13 +653,17 @@ player:
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, you must enable aplayer first
-    enable: false  # 启用 Meting
+    enable: true  # 启用 Meting
     meting_api: # 自定义 API（可选，留空使用默认）
     options:
       id: 792228  # 播放列表/歌曲/专辑 ID
       server: netease  # 音乐平台：netease（网易云）| tencent（QQ音乐）| kugou（酷狗）| xiami（虾米）| baidu（百度）| kuwo（酷我）| bilibili（B站）
       type: song  # 类型：song（单曲）| playlist（播放列表）| album（专辑）| search（搜索）| artist（艺术家）
       auto:   # 自动播放列表（可选）
+      lrcType: 1
+    # 注意：歌词功能由 aplayer.options.lrcType 控制
+    # lrcType: 0（禁用歌词）| 1（显示歌词，从音乐平台API获取）| 2（下载歌词）
+    # 当前已设置为 lrcType: 1，Meting 会自动从音乐平台获取并显示歌词
 
 ########################################
 # pangu.js
