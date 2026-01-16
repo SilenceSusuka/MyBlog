@@ -660,10 +660,6 @@ player:
       server: netease  # 音乐平台：netease（网易云）| tencent（QQ音乐）| kugou（酷狗）| xiami（虾米）| baidu（百度）| kuwo（酷我）| bilibili（B站）
       type: song  # 类型：song（单曲）| playlist（播放列表）| album（专辑）| search（搜索）| artist（艺术家）
       auto:   # 自动播放列表（可选）
-      lrcType: 1
-    # 注意：歌词功能由 aplayer.options.lrcType 控制
-    # lrcType: 0（禁用歌词）| 1（显示歌词，从音乐平台API获取）| 2（下载歌词）
-    # 当前已设置为 lrcType: 1，Meting 会自动从音乐平台获取并显示歌词
 
 ########################################
 # pangu.js
