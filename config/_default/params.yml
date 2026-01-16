@@ -640,7 +640,18 @@ player:
     # https://github.com/DIYgod/APlayer
     enable: true  # 启用 APlayer
     options:
-      audio: []  # 使用 Meting 时会被覆盖，无需填写
+      # 音频列表配置，每个对象包含以下字段：
+      # name: 歌曲名称（必填）
+      # artist: 艺术家/歌手（必填）
+      # url: 音频文件URL（必填，支持 mp3、wav、ogg 等格式）
+      # cover: 封面图片URL（可选，建议填写）
+      # lrc: 歌词文件URL（可选，如果启用歌词功能）
+      audio:
+        - name: "夜光虫"  # 歌曲名称
+          artist: "N-tone"  # 艺术家名称
+          url: "https://music.163.com/song/media/outer/url?id=792228.mp3"  # 音频文件URL
+          cover: "https://p2.music.126.net/lM-Cp3CAgY19BXU1IdbgyA==/109951164738797740.jpg"  # 封面图片URL
+          lrc: "[00:00.00]这是一首安静的纯音乐"
       fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
@@ -649,11 +660,11 @@ player:
       volume: 0.7  # 音量（0-1）
       mutex: true  # 是否互斥（同时只能播放一个）
       listFolded: false  # 播放列表是否折叠
-      lrcType: 0  # 歌词类型：0（禁用）| 1（显示）| 2（下载）
+      lrcType: 1  # 歌词类型：0（禁用）| 1（显示内联歌词）| 2（从URL下载歌词）
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, you must enable aplayer first
-    enable: true  # 启用 Meting
+    enable: false  # 启用 Meting
     meting_api: # 自定义 API（可选，留空使用默认）
     options:
       id: 792228  # 播放列表/歌曲/专辑 ID
@@ -683,16 +694,16 @@ material_theme:
 
 internal_theme:
   light:
-    --red-0: '#9B7ED8'  # 淡紫色主色调
-    --red-1: '#A88DE0'
-    --red-2: '#B59CE8'
-    --red-3: '#C2ABF0'
-    --red-4: '#CFBAF8'
-    --red-5: '#E6DDFF'
-    --red-5-5: '#F0E9FF'
-    --red-6: '#F7F3FF'
-    --color-red-6-shadow: 'rgba(155, 126, 216, 0.6)'  # 淡紫色阴影
-    --color-red-3-shadow: 'rgba(155, 126, 216, 0.3)'
+    --red-0: '#B8941F'  # 金棕色主色调
+    --red-1: '#C09F2F'
+    --red-2: '#C8AA3F'
+    --red-3: '#D0B54F'
+    --red-4: '#D8C05F'
+    --red-5: '#E8D07F'
+    --red-5-5: '#F0DC9F'
+    --red-6: '#F7E8BF'
+    --color-red-6-shadow: 'rgba(184, 148, 31, 0.6)'  # 金棕色阴影
+    --color-red-3-shadow: 'rgba(184, 148, 31, 0.3)'
 
     --highlight-nav: "#f5f5f5"
     --highlight-scrollbar: "#d6d6d6"
@@ -712,10 +723,10 @@ internal_theme:
     --highlight-addition: "#22863a"
     --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: 'rgba(207, 186, 248, 0.5)'  # 暗色模式下的淡紫色
-    --red-5: 'rgba(230, 221, 255, 0.15)'
-    --red-5-5: 'rgba(240, 233, 255, 0.05)'
-    --red-6: 'rgba(247, 243, 255, 0.2)'
+    --red-4: 'rgba(216, 192, 95, 0.5)'  # 暗色模式下的金棕色
+    --red-5: 'rgba(232, 208, 127, 0.15)'
+    --red-5-5: 'rgba(240, 220, 159, 0.05)'
+    --red-6: 'rgba(247, 232, 191, 0.2)'
 
     --highlight-nav: "#222830"
     --highlight-scrollbar: "#454d59"
