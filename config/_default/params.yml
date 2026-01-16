@@ -655,7 +655,7 @@ player:
       fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
-      order: single  # 播放顺序：list（列表）| random（随机）| single（单曲）
+      order: list  # 播放顺序：list（列表）| random（随机）
       preload: auto  # 预加载：auto | metadata | none
       volume: 0.7  # 音量（0-1）
       mutex: true  # 是否互斥（同时只能播放一个）
