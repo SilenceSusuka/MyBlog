@@ -1,8 +1,8 @@
 ---
 title: '部署Nginx反代并添加Https证书'
-
+cover: https://blog.silencesusuka.com/images/cover/cover8.jpg
 date: 2026-01-16T16:12:00+08:00
-lastmod: 2026-01-16T16:12:00+08:00
+lastmod: 2026-01-16T17:30:00+08:00
 
 categories:
   - 服务器笔记
@@ -162,3 +162,8 @@ server {
 nginx -t
 systemctl reload nginx
 ```
+
+
+等待一段时间，多刷新一下页面就可以成功使用https访问站点
+
+![1768787625262](image/index/1768787625262.png)
