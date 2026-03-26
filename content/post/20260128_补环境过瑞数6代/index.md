@@ -1,6 +1,6 @@
 ---
 title: '补环境过瑞数6代'
-
+cover: https://blog.silencesusuka.com/images/cover/cover1.jpg
 date: 2026-01-28T15:44:00+08:00
 lastmod: 2026-01-28T16:00:00+08:00
 
@@ -74,7 +74,7 @@ tags:
 
 我使用的代理：
 
-```
+```javascript
 dtavm = {}
 dtavm.log = console.log
  
@@ -249,23 +249,23 @@ navigator = proxy(navigator, 'navigator')
 
 ![1769590355951](image/index/1769590355951.png)
 
-可以看到调试信息显示调用createElement后传入了`div`参数，但是返回的结果为`undefined`，并且报错了没有定义 `getElementsByTagName`这个函数
+可以看到调试信息显示调用createElement后传入了 `div`参数，但是返回的结果为 `undefined`，并且报错了没有定义 `getElementsByTagName`这个函数
 
 6、在 `createElement`定义的代码中加入 `div`，但我们此时并不知道 `div`的具体情况，因此我们同时加上 `div`的代理，继续执行查看结果
 
 ![1769593769784](image/index/1769593769784.png)
 
-这时候 `div`传入了后，报错了一个`_`，根据代理的回显，我们可以知道这个`_`所对应的就是 `getElementsByTagName`，那么我们就去浏览器中找一下这个函数在哪
+这时候 `div`传入了后，报错了一个 `_`，根据代理的回显，我们可以知道这个 `_`所对应的就是 `getElementsByTagName`，那么我们就去浏览器中找一下这个函数在哪
 
 7、在浏览器中找到对应的函数
 
-搜索`_`，可以看到总共40个结果，但是由于报错是`_`，因此说明`_`肯定是个函数，所以我们加上一个 `(`搜索，可以看到结果就12个了，然后可以观察刚刚的报错中其实有这个函数的所在地 `at _$ju (:2:84913)`，找一下这12个中哪个是和这个所在地匹配的就能找到这个函数了，可以看到这里第二个就是第 `2`行第 `84913`列了
+搜索 `_`，可以看到总共40个结果，但是由于报错是 `_`，因此说明 `_`肯定是个函数，所以我们加上一个 `(`搜索，可以看到结果就12个了，然后可以观察刚刚的报错中其实有这个函数的所在地 `at _$ju (:2:84913)`，找一下这12个中哪个是和这个所在地匹配的就能找到这个函数了，可以看到这里第二个就是第 `2`行第 `84913`列了
 
 ![1769591264568](image/index/1769591264568.png)
 
 在这里打上断点并F8直接执行到此处
 
-如果途中遇到了`debugger`，可以右键左边的行头，选择一律不在此处暂停，节省一些时间
+如果途中遇到了 `debugger`，可以右键左边的行头，选择一律不在此处暂停，节省一些时间
 
 ![1769591345969](image/index/1769591345969.png)
 
@@ -287,9 +287,9 @@ navigator = proxy(navigator, 'navigator')
 
 ![1769594018348](image/index/1769594018348.png)
 
-根据之前的代码报错前的内容可知，`div`调用了名为 `getElementsByTagName`的函数，该函数传入了 `i`参数并且返回为`[]`，因此在`div`中加入相关内容
+根据之前的代码报错前的内容可知，`div`调用了名为 `getElementsByTagName`的函数，该函数传入了 `i`参数并且返回为 `[]`，因此在 `div`中加入相关内容
 
-```
+```javascript
 div={
     "getElementsByTagName":function(parm){
         if(parm==='i'){
@@ -303,16 +303,16 @@ div={
 
 ![1769653801655](image/index/1769653801655.png)
 
-此时代理回显了`addEventListener`、`attachEvent`没有定义，同样补上这两个函数的定义
+此时代理回显了 `addEventListener`、`attachEvent`没有定义，同样补上这两个函数的定义
 
-```
+```javascript
 window.addEventListener = function(){}
 window.attachEvent = function(){}
 ```
 
-此时也可以在浏览器中检索`_`，可以看到相关代码的内容为
+此时也可以在浏览器中检索 `_`，可以看到相关代码的内容为
 
-```
+```javascript
 _$jH[_$g9[41]] ? _$jH[_$g9[41]](_$bJ, _$_W, _$a0) : (_$bJ = 'on' + _$bJ,_$jH[_$bL[22]](_$bJ, _$_W));
 ```
 
@@ -322,7 +322,7 @@ _$jH[_$g9[41]] ? _$jH[_$g9[41]](_$bJ, _$_W, _$a0) : (_$bJ = 'on' + _$bJ,_$jH[_$b
 
 这段三段式代码其实就是用来做新旧浏览器兼容的，标准浏览器用 `addEventListener`，老IE浏览器用 `attachEvent`，三段式就是来判断是否存在 `addEventListener`，如果没有就使用 `attachEvent`，所以理论上只补上 `addEventListener`就可以了，当然这里两个全补上也没啥区别
 
-9、补上`addEventListener`、`attachEvent`后继续执行，查看报错是否有变化
+9、补上 `addEventListener`、`attachEvent`后继续执行，查看报错是否有变化
 
 ![1769654980680](image/index/1769654980680.png)
 
@@ -335,15 +335,15 @@ Uncaught TypeError TypeError: _$bV[_$g9[75]] is not a function
     at _$fd (:2:271384)
 ```
 
-按之前的方法继续分析可以知道`document`中缺了`getElementById`，并且`_`大概率就是`getElementById`，它的位置在`2`行`271384`列
+按之前的方法继续分析可以知道 `document`中缺了 `getElementById`，并且 `_`大概率就是 `getElementById`，它的位置在 `2`行 `271384`列
 
 浏览器搜索找到2行271384列的_$bV[_$g9[75]]，并断点执行
 
 ![1769655217591](image/index/1769655217591.png)
 
-可以看到调用了`getElementById`并传参`lhUQDqdAt5n6`，并返回了一个`meta`标签，于是在`document`中补上`getElementById`以及对应的`meta`，但和之前的`div`标签一样，我们不知道内部的情况，因此`meta`加上代理看一下内部调用
+可以看到调用了 `getElementById`并传参 `lhUQDqdAt5n6`，并返回了一个 `meta`标签，于是在 `document`中补上 `getElementById`以及对应的 `meta`，但和之前的 `div`标签一样，我们不知道内部的情况，因此 `meta`加上代理看一下内部调用
 
-10、加入`meta`以及代理后运行的调试信息显示
+10、加入 `meta`以及代理后运行的调试信息显示
 
 ![1769655674985](image/index/1769655674985.png)
 
@@ -355,13 +355,13 @@ Uncaught TypeError TypeError: _$hr[_$g9[51]] is not a function
     at _$fd (:2:278687)
 ```
 
-得知`meta`中应该需要调用一个`getAttribute`，而该函数大概率就是`2`行`278687`列的`_`，我们浏览器找到该位置
+得知 `meta`中应该需要调用一个 `getAttribute`，而该函数大概率就是 `2`行 `278687`列的 `_`，我们浏览器找到该位置
 
 ![1769655930258](image/index/1769655930258.png)
 
-根据调试信息，知道了`getAttribute`会传入参数 `r`，并回显 `m`，按调试信息在代码中补全内容
+根据调试信息，知道了 `getAttribute`会传入参数 `r`，并回显 `m`，按调试信息在代码中补全内容
 
-```
+```javascript
 meta={
     "getAttribute":function(parm){
         if(parm==='r'){
@@ -375,9 +375,9 @@ meta={
 
 ![1769656277746](image/index/1769656277746.png)
 
-这次的报错内容不再是`not a function`了，而是与最开始的`div`报错内容一致，其实按之前div的经验也能猜出，少了`parentNode`的`removeChild`函数了
+这次的报错内容不再是 `not a function`了，而是与最开始的 `div`报错内容一致，其实按之前div的经验也能猜出，少了 `parentNode`的 `removeChild`函数了
 
-11、总之按部就班，先补上`parentNode`，由于不知道内部情况，因此添加代理
+11、总之按部就班，先补上 `parentNode`，由于不知道内部情况，因此添加代理
 
 ![1769656843609](image/index/1769656843609.png)
 
@@ -385,9 +385,9 @@ meta={
 
 ![1769657040212](image/index/1769657040212.png)
 
-根据调试信息可以知道就是单纯的`remove`了`meta`标签，不用特别设置回显，在`parentNode`中补上
+根据调试信息可以知道就是单纯的 `remove`了 `meta`标签，不用特别设置回显，在 `parentNode`中补上
 
-```
+```javascript
 meta={
     "getAttribute":function(parm){
         if(parm==='r'){
@@ -400,19 +400,19 @@ meta={
 }
 ```
 
-11、补完`removeChild`后继续执行，查看回显
+11、补完 `removeChild`后继续执行，查看回显
 
 ![1769667530564](image/index/1769667530564.png)
 
-这时候要注意一下，瑞数的动态`cookie`是依赖于`meta`标签中的`content`参数的，这里content参数没有传入，所以记得也要补上，当然好习惯应该是之前看到`meta`标签里有固定的参数的时候就可以把那些参数都加上了，之前偷懒了
+这时候要注意一下，瑞数的动态 `cookie`是依赖于 `meta`标签中的 `content`参数的，这里content参数没有传入，所以记得也要补上，当然好习惯应该是之前看到 `meta`标签里有固定的参数的时候就可以把那些参数都加上了，之前偷懒了
 
-```
+```javascript
 <meta id="lhUQDqdAt5n6" content="ua1rtlufma_WF3Vc.iA7zB_ffC13eSi4IIqK0szpCP7" r='m'>
 ```
 
 干脆就把标签里的内容全补上去
 
-```
+```javascript
 meta={
     "id":"lhUQDqdAt5n6",
     "content":"ua1rtlufma_WF3Vc.iA7zB_ffC13eSi4IIqK0szpCP7",
@@ -432,13 +432,13 @@ meta={
 
 ![1769668109115](image/index/1769668109115.png)
 
-接下来就继续补`getElementsByTagName`，方法和之前一样
+接下来就继续补 `getElementsByTagName`，方法和之前一样
 
 ![1769668256463](image/index/1769668256463.png)
 
-可以看到传了`base`返回`[]`
+可以看到传了 `base`返回 `[]`
 
-```
+```javascript
 document = {
     "createElement":function(parm){
         if(parm==='div'){
@@ -460,13 +460,13 @@ document = {
 }
 ```
 
-13、补充`document.getElementsByTagName`后继续执行
+13、补充 `document.getElementsByTagName`后继续执行
 
 ![1769670137935](image/index/1769670137935.png)
 
-发现又是和之前一样的缺少了`attachEvent`和`addEventListener`，不过显示是在`document`下面，所以在`document`中补上
+发现又是和之前一样的缺少了 `attachEvent`和 `addEventListener`，不过显示是在 `document`下面，所以在 `document`中补上
 
-```
+```javascript
 document = {
     "createElement":function(parm){
         if(parm==='div'){
@@ -490,13 +490,13 @@ document = {
 }
 ```
 
-15、在`document`中补充新旧模拟器兼容函数的定义后继续执行
+15、在 `document`中补充新旧模拟器兼容函数的定义后继续执行
 
 ![1769670237364](image/index/1769670237364.png)
 
-这时候就能发现之前`document`中的`getElementByTagName`函数又传入了`script`，但`script`的具体情况我们也不清楚，并且没有给出具体的函数名，因此我们还是给`script`加上代理，看看代理的回显
+这时候就能发现之前 `document`中的 `getElementByTagName`函数又传入了 `script`，但 `script`的具体情况我们也不清楚，并且没有给出具体的函数名，因此我们还是给 `script`加上代理，看看代理的回显
 
-16、添加`script`代理后继续运行，查看回显
+16、添加 `script`代理后继续运行，查看回显
 
 ![1769671587130](image/index/1769671587130.png)
 
@@ -506,9 +506,9 @@ document = {
 
 ![1769670898315](image/index/1769670898315.png)
 
-根据浏览器的调试信息可知，这次传入`script`的结果应该是`[script,script]`，我们也按照这个格式修正一下之前`return`的格式
+根据浏览器的调试信息可知，这次传入 `script`的结果应该是 `[script,script]`，我们也按照这个格式修正一下之前 `return`的格式
 
-```
+```javascript
 document = {
     "createElement":function(parm){
         if(parm==='div'){
@@ -535,17 +535,17 @@ document = {
 }
 ```
 
-17、返回的格式从`return script`修正为`return [script,script]`后，再运行代码，查看代理
+17、返回的格式从 `return script`修正为 `return [script,script]`后，再运行代码，查看代理
 
 ![1769671666644](image/index/1769671666644.png)
 
-这次成功让代理监控到了`script`，可以看到其中调用了`getAttribute`函数，给的报错函数名和地址依然还是那个索引函数，那就继续在刚刚的断点处往后执行
+这次成功让代理监控到了 `script`，可以看到其中调用了 `getAttribute`函数，给的报错函数名和地址依然还是那个索引函数，那就继续在刚刚的断点处往后执行
 
 ![1769671764532](image/index/1769671764532.png)
 
-断点执行一次后，成功找到了`getAttribute`，可以看到和之前补的`getAttribute`一样，传入了`r`输出`m`，按照这个传入和输出在`script`中补上函数
+断点执行一次后，成功找到了 `getAttribute`，可以看到和之前补的 `getAttribute`一样，传入了 `r`输出 `m`，按照这个传入和输出在 `script`中补上函数
 
-```
+```javascript
 script={
     "getAttribute":function(parm){
         if(parm==='r'){
@@ -555,17 +555,17 @@ script={
 }
 ```
 
-18、补上`script`中的`getAttribute`后，继续执行代码
+18、补上 `script`中的 `getAttribute`后，继续执行代码
 
 ![1769671948894](image/index/1769671948894.png)
 
-这时候又和之前`meta`标签补`parentNode`的时候一样了，还是老样子，补一个空的，代理一下，看看结果
+这时候又和之前 `meta`标签补 `parentNode`的时候一样了，还是老样子，补一个空的，代理一下，看看结果
 
-19、补充`script.parentElement`，并且设置代理后运行代码
+19、补充 `script.parentElement`，并且设置代理后运行代码
 
 ![1769672099526](image/index/1769672099526.png)
 
-这时候可以看到和之前一样少了`removeChild`，这次虽然函数名还是那个索引函数，但注意位置变了，所以不再是之前那个断点了，找到对应位置开始调试
+这时候可以看到和之前一样少了 `removeChild`，这次虽然函数名还是那个索引函数，但注意位置变了，所以不再是之前那个断点了，找到对应位置开始调试
 
 由于是索引函数，调试的时候无意义的函数调用太多，我们直接右键行头设置条件断点
 
@@ -573,9 +573,9 @@ script={
 
 ![1769672751884](image/index/1769672751884.png)
 
-因为是靠`_$gs`字符串来传入调用什么参数的，因此条件设置为
+因为是靠 `_$gs`字符串来传入调用什么参数的，因此条件设置为
 
-```
+```javascript
 _$gs==='removeChild'
 ```
 
@@ -583,9 +583,9 @@ _$gs==='removeChild'
 
 ![1769672841750](image/index/1769672841750.png)
 
-可以看到和之前`meta`标签中的`removeChild`一样，也是用来移除标签本身的，没有什么实际作用一样定义一下就行
+可以看到和之前 `meta`标签中的 `removeChild`一样，也是用来移除标签本身的，没有什么实际作用一样定义一下就行
 
-```
+```javascript
 script={
     "getAttribute":function(parm){
         if(parm==='r'){
@@ -598,13 +598,13 @@ script={
 }
 ```
 
-20、补充`removeChild`后，继续执行
+20、补充 `removeChild`后，继续执行
 
 ![1769673376831](image/index/1769673376831.png)
 
-虽然依然有索引函数的报错，但可以明显发现原因是`timeout`引起的，这类似于循环定时器，在代码中将定时器置空即可
+虽然依然有索引函数的报错，但可以明显发现原因是 `timeout`引起的，这类似于循环定时器，在代码中将定时器置空即可
 
-```
+```javascript
 setInterval=function(){}
 setTimeout=function(){}
 ```
