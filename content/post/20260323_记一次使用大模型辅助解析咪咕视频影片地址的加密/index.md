@@ -488,14 +488,14 @@ navigator = proxy(navigator, 'navigator')
 
 其分析结果汇总如下：
 
-| 调用 | 作用             | 补充                                                                                                       | 返回值                                           |
-| ---- | ---------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| a.g  | 域名白名单       | 判断 `hostname` 是否为 `miguvideo.com` **/** `cmcc-vr.com` **或其子域**                 | true/false                                       |
-| a.k  | 写入WebGL指纹    | 拼 `VERSION\|SHADING_LANGUAGE_VERSION\|RENDERER\|extensions`，经 `Qe` 写入线性内存，`dt` 为 `_malloc` | 写入的指针地址                                   |
-| a.f  | 打开文件(得到fd) | **第一个参数**为对应 Emscripten 里常用的 `AT_FDCWD`（相对当前工作目录解析路径）                    | **虚拟文件系统** 上的 **文件描述符** |
-| a.d  | 读取文件         | 对刚刚**文件描述符**所对应的文件做读；`ze` 从流读到 wasm 缓冲区；`O[n>>2]` 写入结果计数。        | 返回0即成功                                      |
-| a.a  | 关闭文件(关闭fd) | close(**文件描述符**)                                                                                | 返回0即成功                                      |
-| a.h  | 动态调用         | **第一个参数** 为在同文件 `lt` 表里注册的 **导出函数 id**                                    | 无返回值                                         |
+| 名称 | 作用          | 补充                                                                                                       | 返回值               |
+| ---- | ------------- | ---------------------------------------------------------------------------------------------------------- | -------------------- |
+| a.g  | 域名白名单    | 判断 `hostname` 是否为 `miguvideo.com` **/** `cmcc-vr.com` **或其子域**                 | true/false           |
+| a.k  | 写入WebGL指纹 | 拼 `VERSION\|SHADING_LANGUAGE_VERSION\|RENDERER\|extensions`，经 `Qe` 写入线性内存，`dt` 为 `_malloc` | 写入的指针地址       |
+| a.f  | 打开文件      | **第一个参数**为对应 Emscripten 里常用的 `AT_FDCWD`（相对当前工作目录解析路径）                    | **文件描述符** |
+| a.d  | 读取文件      | 对刚刚**文件描述符**所对应的文件做读；`ze` 从流读到 wasm 缓冲区；`O[n>>2]` 写入结果计数。        | 返回0即成功          |
+| a.a  | 关闭文件      | close(**文件描述符**)                                                                                | 返回0即成功          |
+| a.h  | 动态调用      | **第一个参数** 为在同文件 `lt` 表里注册的 **导出函数 id**                                    | 无返回值             |
 
 那么现在就能知道，`a.g`、`a.k`为环境检测，`a.f`、`a.d`、`a.a`用于文件读写，`a.h`一般用于IDBS的初始化(将IndexedDB内容装载入MEMFS中)，那么导致报错的可能原因就是环境检测未通过或者未能读取到indexedDB的虚拟文件数据。
 
@@ -516,7 +516,7 @@ navigator = proxy(navigator, 'navigator')
 | **UNMASKED_VENDOR_WEBGL**    | `Google Inc. (NVIDIA)`                                                                    |
 | **UNMASKED_RENDERER_WEBGL**  | `ANGLE (NVIDIA, NVIDIA GeForce GTX 1660 Ti (0x00002191) Direct3D11 vs_5_0 ps_5_0, D3D11)` |
 | **扩展数量**                 | 35                                                                                          |
-| **扩展列表（已排序）               | 与脚本返回的 `extensionsSorted` 一致（含 `WEBGL_debug_renderer_info` 等）               |
+| **扩展列表**                 | 含 `WEBGL_debug_renderer_info` 等                                                         |
 
 将其填充入脚本中
 
@@ -831,7 +831,7 @@ navigator = proxy(navigator, 'navigator')
 
 ## 8、动态链接补充
 
-最后补充上通过 `webapi.miguvideo.com`动态加载链接，因为静态url会因为服务端传入的`pudata`过期导致生成的资源地址无法访问
+最后补充上通过 `webapi.miguvideo.com`动态加载链接，因为静态url会因为服务端传入的 `pudata`过期导致生成的资源地址无法访问
 
 *注：当前所使用的wasm包版本为：`v_20260319114127_8ee96c9d`，以下所有内容都基于该wasm版本*
 
