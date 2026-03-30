@@ -154,9 +154,11 @@ node jsbeautify.js pcPlayer.js
 
 经过全局检索，可以看到pcPlayer全局只调用了 `mgprtcl.wasm`这一个wasm，
 
+我们到devtools中找到这个wasm文件
+
 ![1774331936438](image/index/1774331936438.png)
 
-我们在网页中同样将这个wasm文件明文内容摘出(由于wasm本质是二进制文件，模型本地无法直接查看，因此从浏览器直接粘贴出保存为txt)，放于本地，方便后续模型后续分析以及调用
+同样将这个wasm文件明文内容摘出(由于wasm本质是二进制文件，模型本地无法直接查看，而devtool能够解析wasm，因此直接粘出存为txt)，放于本地，方便后续模型后续对其分析
 
 ![1774422090108](image/index/1774422090108.png)
 
@@ -524,7 +526,7 @@ navigator = proxy(navigator, 'navigator')
 
 ### 7.2、IndexedDB内容
 
-由于MCP工具没有提供其读取l `ocalStorge`、`IndexedDB`等内容的功能
+由于MCP工具没有提供其读取`localStorge`、`IndexedDB`等内容的功能
 
 因此使用模型生成一个油猴脚本用于导出该页面的IndexedDB内容
 
@@ -827,7 +829,7 @@ navigator = proxy(navigator, 'navigator')
 
 ![1774488949800](image/index/1774488949800.png)
 
-可以看到输出的ddCalcu与前文第二部分中网页实际请求带上的后缀 `&ddCalcu=708cad8a24a78a3b9e6b7793a2d03b4354e6_s002&sv=10011&crossdomain=www`一样
+可以看到输出的ddCalcu与前文第二部分中网页实际请求带上的后缀 `ddCalcu=708cad8a24a78a3b9e6b7793a2d03b4354e6_s002`一样
 
 ## 8、动态链接补充
 
