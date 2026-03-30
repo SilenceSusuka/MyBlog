@@ -55,7 +55,7 @@ MCP配置:
 
 根据模型分析初步得到影片调用逻辑为
 
-加载[影片主页面](https://www.miguvideo.com/p/detail/889482950 "https://www.miguvideo.com/p/detail/889482950")时，根据访问影片主页面带有的 `contID`，携带该ID去获取[影片详情](https://webapi.miguvideo.com/gateway/playurl/v3/play/playurl "https://webapi.miguvideo.com/gateway/playurl/v3/play/playurl")，从影片详情的返回报文中获取所需的[m3u8资源地址](https://gslbmgspvod.miguvideo.com/ "https://gslbmgspvod.miguvideo.com/")
+加载[影片主页面](https://www.miguvideo.com/p/detail/889482950 "https://www.miguvideo.com/p/detail/889482950")时，根据访问影片主页面带有的 `contID`，携带该ID去获取[影片详情](https://webapi.miguvideo.com/gateway/playurl/v3/play/playurl "https://webapi.miguvideo.com/gateway/playurl/v3/play/playurl")，从影片详情所返回的响应json的 `body.urlInfo.url`中获取所需的[m3u8资源地址](https://gslbmgspvod.miguvideo.com/ "https://gslbmgspvod.miguvideo.com/")
 
 接着直接控制台查找对应的报文
 
@@ -526,7 +526,7 @@ navigator = proxy(navigator, 'navigator')
 
 ### 7.2、IndexedDB内容
 
-由于MCP工具没有提供其读取`localStorge`、`IndexedDB`等内容的功能
+由于MCP工具没有提供其读取 `localStorge`、`IndexedDB`等内容的功能
 
 因此使用模型生成一个油猴脚本用于导出该页面的IndexedDB内容
 
