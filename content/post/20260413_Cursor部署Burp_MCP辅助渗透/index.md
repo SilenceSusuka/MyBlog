@@ -16,7 +16,7 @@ tags:
 
 使用的[Datch大佬的Burpsuite](https://www.52pojie.cn/thread-1953331-1-1.html "https://www.52pojie.cn/thread-1953331-1-1.html")
 
-进入Burp的扩展>BApp商店，搜索MCP并选择MCP Server
+进入Burp的`扩展`>`BApp商店`，搜索MCP并选择`MCP Server`
 
 ![1776066429463](image/index/1776066429463.png)
 
@@ -24,7 +24,7 @@ tags:
 
 ## 2）下载监听jar包
 
-在该扩展页面点击Extract server proxy jar，下载代理的jar包
+在该扩展页面点击`Extract server proxy jar`，下载代理的jar包
 
 ![1776066541156](image/index/1776066541156.png)
 
