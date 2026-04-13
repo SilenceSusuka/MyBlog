@@ -14,7 +14,7 @@ tags:
 ---
 ## 1）下载MCP-server插件
 
-使用的[Datch大佬的Burpsuite](https://www.52pojie.cn/thread-1953331-1-1.html "https://www.52pojie.cn/thread-1953331-1-1.html")
+使用的[Datch大佬的Burpsuite](https://www.52pojie.cn/thread-2005151-1-1.html "https://www.52pojie.cn/thread-2005151-1-1.html")
 
 进入Burp的`扩展`>`BApp商店`，搜索MCP并选择`MCP Server`
 
