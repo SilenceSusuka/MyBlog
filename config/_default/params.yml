@@ -645,8 +645,7 @@ player:
         artist: 'CASG',
         url: '/music/Till I Die.mp3',
         cover: '/music/Till I Die.jpg',
-        lrc: '/music/Till I Die.lrc'
-    }]
+        lrc: '/music/Till I Die.lrc'}]
       fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
