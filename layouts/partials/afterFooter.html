@@ -368,7 +368,7 @@
             const aside = aplayer.parentNode?.parentNode;
             if (aside?.tagName === 'ASIDE') {
               aplayer.removeAttribute('data-aos');
-              aplayer.parentNode.removeChild(aplayer);
+              aside.parentNode.removeChild(aplayer);
               document.body.appendChild(aplayer);
             }
           }
