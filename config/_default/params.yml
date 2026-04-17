@@ -640,7 +640,13 @@ player:
     # https://github.com/DIYgod/APlayer
     enable: true  # 启用 APlayer
     options:
-      audio: []
+      audio: [{
+        name: 'Till I Die',
+        artist: 'CASG',
+        url: '/music/Till I Die.mp3',
+        cover: '/music/Till I Die.jpg',
+        lrc: '/music/Till I Die.lrc'
+    }]
       fixed: false  # 固定播放器位置（底部）
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
@@ -653,7 +659,7 @@ player:
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, you must enable aplayer first
-    enable: true  # 启用 Meting
+    enable: false  # 启用 Meting
     meting_api: # 自定义 API（可选，留空使用默认）
     options:
       id: 792228  # 播放列表/歌曲/专辑 ID
