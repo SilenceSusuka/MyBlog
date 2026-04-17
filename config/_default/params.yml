@@ -646,7 +646,7 @@ player:
         url: '/music/Till I Die.mp3',
         cover: '/music/Till I Die.jpg',
         lrc: '/music/Till I Die.lrc'}]
-      fixed: true  
+      fixed: false  
       autoplay: true  # 是否自动播放
       loop: one  # 循环模式：all（全部）| one（单曲）| none（不循环）
       order: list  # 播放顺序：list（列表）| random（随机）
