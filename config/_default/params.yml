@@ -654,7 +654,7 @@ player:
       volume: 0.7  # 音量（0-1）
       mutex: true  # 是否互斥（同时只能播放一个）
       listFolded: false  # 播放列表是否折叠
-      lrcType: 1  # 歌词类型：0（禁用）| 1（显示内联歌词）| 2（从URL下载歌词）
+      lrcType: 3  # 歌词类型：0（禁用）| 1（显示内联歌词）| 2（从URL下载歌词）
   meting:
     # https://github.com/metowolf/MetingJS
     # if you want to use meting, you must enable aplayer first
