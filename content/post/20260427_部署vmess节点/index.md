@@ -7,6 +7,7 @@ lastmod: 2026-04-27T17:30:00+08:00
 categories:
   - 服务器笔记
   - 命令集
+  - 工具集
 tags:
   - V2ray
 ---
@@ -36,7 +37,7 @@ systemctl status v2ray
 cat /proc/sys/kernel/random/uuid
 ```
 
-假设生成的UUID为`11111111-2222-3333-4444-555555555555`
+假设生成的UUID为 `11111111-2222-3333-4444-555555555555`
 
 ## 3、写入服务端配置
 
