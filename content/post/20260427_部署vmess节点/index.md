@@ -135,3 +135,5 @@ sudo firewall-cmd --list-ports
 TLS: none
 伪装类型 / Type: none
 ```
+
+![1777279059830](image/index/1777279059830.png)
