@@ -193,7 +193,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_user_passkeys_user_id_passkey_id ON user_p
 
 1.3.2、将路由配置为发送到worker
 
-![1777531241627](image/index/1777531241627.png)
+![1777538414298](image/index/1777538414298.png)
 
 ## 1.4、部署服务器前端页面
 
