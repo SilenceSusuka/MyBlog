@@ -164,7 +164,7 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_user_passkeys_user_id_passkey_id ON user_p
 
 ![1777516690205](image/index/1777516690205.png)
 
-1.2.5、在 `设置`>`变量和机密`选项中添加相关变量设置
+1.2.5、在 `设置`>`变量和机密`选项中添加相关变量设置，更多变量参考[worker变量说明](https://temp-mail-docs.awsl.uk/zh/guide/worker-vars.html "https://temp-mail-docs.awsl.uk/zh/guide/worker-vars.html")
 
 | 变量名                       | 类型        | 说明                                       | 示例                                   |
 | ---------------------------- | ----------- | ------------------------------------------ | -------------------------------------- |
@@ -185,12 +185,24 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_user_passkeys_user_id_passkey_id ON user_p
 
 直接访问显示 `OK`，打开 `/health_check`显示OK，打开 `/open_api/settings`显示JSON，则代表部署配置成功
 
-## 1.3、部署服务器前端页面
+## 1.3、申请邮箱路由
 
-1.3.1 下载前端[fronted.zip](https://github.com/dreamhunter2333/cloudflare_temp_email/releases/latest/download/frontend.zip "https://github.com/dreamhunter2333/cloudflare_temp_email/releases/latest/download/frontend.zip")
+1.3.1、在cloudflare的域名上选择 `电子邮件路由`
 
-1.3.2 全局搜索https://temp-email-api.xxx.xxx，将其替换为刚刚后端的地址
+![1777530938910](https://file+.vscode-resource.vscode-cdn.net/d%3A/AntBlog/content/post/20260430_%E4%BD%BF%E7%94%A8Cloudflare%E9%83%A8%E7%BD%B2%E4%B8%B4%E6%97%B6%E9%82%AE%E7%AE%B1%E6%9C%8D%E5%8A%A1%E5%99%A8/image/index/1777530938910.png)
 
-1.3.3 创建pages，上传刚刚的zip文件
+1.3.2、将路由配置为发送到worker
+
+![1777531241627](image/index/1777531241627.png)
+
+## 1.4、部署服务器前端页面
+
+1.4.1 下载前端[fronted.zip](https://github.com/dreamhunter2333/cloudflare_temp_email/releases/latest/download/frontend.zip "https://github.com/dreamhunter2333/cloudflare_temp_email/releases/latest/download/frontend.zip")
+
+1.4.2 全局搜索https://temp-email-api.xxx.xxx，将其替换为刚刚后端的地址
+
+1.4.3 创建pages，上传刚刚的zip文件
 
 ![1777529129447](image/index/1777529129447.png)
+
+1.4.4 访问 `/admin`路径即可创建用户或者进行后台管理
