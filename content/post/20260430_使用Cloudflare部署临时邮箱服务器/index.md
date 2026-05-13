@@ -12,7 +12,7 @@ tags:
 ---
 ## 1.1、初始化数据库
 
-创建新的D1数据库，在其 `控制台`页面，键入[db/shema.sql](https://github.com/dreamhunter2333/cloudflare_temp_email/blob/main/db/schema.sql "https://github.com/dreamhunter2333/cloudflare_temp_email/blob/main/db/schema.sql")文件，点击 `执行`
+在[cloudflare控制台](https://dash.cloudflare.com/ "https://dash.cloudflare.com/")中，创建新的D1数据库，在其 `控制台`页面，键入[db/shema.sql](https://github.com/dreamhunter2333/cloudflare_temp_email/blob/main/db/schema.sql "https://github.com/dreamhunter2333/cloudflare_temp_email/blob/main/db/schema.sql")文件，点击 `执行`
 
 ![1777515730296](image/index/1777515730296.png)
 
